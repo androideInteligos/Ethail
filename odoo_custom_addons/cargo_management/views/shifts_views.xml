@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+<!--      <record model="ir.ui.view" id="cargo_management.views_kanban_shifts">-->
+<!--          <field name="name">Shifts Kanban</field>-->
+<!--          <field name="model">cargo.shifts</field>-->
+<!--          <field name="arch" type="xml">-->
+<!--              <kanban>-->
+<!--                  <field name="name"/>-->
+<!--                  <t t-name="kanban_shifts">-->
+<!--                      <div>-->
+<!--                          <h3><field name="name"/></h3>-->
+<!--                      </div>-->
+<!--                  </t>-->
+<!--              </kanban>-->
+<!--          </field>-->
+<!--      </record>-->
+
+      <record model="ir.ui.view" id="cargo_management.views_tree_shifts">
+          <field name="name">Shifts Tree</field>
+          <field name="model">cargo.shifts</field>
+          <field name="arch" type="xml">
+              <tree editable="bottom">
+                  <field name="name"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="cargo_management.action_menu_shifts">
+          <field name="name">Turnos</field>
+          <field name="res_model">cargo.shifts</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <menuitem name="Tipo de Turnos"
+           id="cargo_management_shifts"
+           parent="cargo_management_submenu_config"
+           action="cargo_management.action_menu_shifts"
+           sequence="0"/>
+  </data>
+</odoo>

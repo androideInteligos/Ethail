@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cargo_management_shifts_manager,shifts_manager,model_cargo_shifts,cargo_management.group_cargo_management,1,1,1,1

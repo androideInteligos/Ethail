@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+      <record model="ir.ui.view" id="cargo_management.views_tree_configuration_of_box_car">
+          <field name="name">Config BoxCar Tree</field>
+          <field name="model">cargo.configuration_of_box_car</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="config"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="cargo_management.views_form_configuration_of_box_car">
+          <field name="name">Config BoxCar Form</field>
+          <field name="model">cargo.configuration_of_box_car</field>
+          <field name="arch" type="xml">
+              <form string="Configuracion">
+                  <sheet>
+                      <group>
+                          <group>
+                              <field name="config"/>
+                          </group>
+                          <group>
+                              <field name="image"/>
+                          </group>
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="cargo_management.action_menu_configuration_of_box_car">
+          <field name="name">Configuracion Furgon</field>
+          <field name="res_model">cargo.configuration_of_box_car</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <menuitem name="Configuracion Furgon"
+           id="cargo_management_configuration_of_box_car"
+           parent="cargo_management_submenu_config"
+           action="cargo_management.action_menu_configuration_of_box_car"
+           sequence="2"/>
+  </data>
+</odoo>

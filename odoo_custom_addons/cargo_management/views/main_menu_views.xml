@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <menuitem name="Carga"
+           id="cargo_management_main_menu"
+           sequence="311"/>
+        <menuitem name="Viajes"
+           id="cargo_management_submenu_journey"
+           parent="cargo_management_main_menu"
+           sequence="1"/>
+        <menuitem name="Configuracion"
+           id="cargo_management_submenu_config"
+           parent="cargo_management_main_menu"
+           sequence="2"/>
+  </data>
+</odoo>

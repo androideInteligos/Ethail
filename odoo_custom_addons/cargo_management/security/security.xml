@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="group_cargo_management" model="res.groups">
+            <field name="name">Cargo Manager</field>
+            <field name="comment">Manager of cargo transport</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+      <record model="ir.ui.view" id="cargo_management.views_tree_burden_types">
+          <field name="name">Burden Types Tree</field>
+          <field name="model">cargo.type_of_burden</field>
+          <field name="arch" type="xml">
+              <tree editable="bottom">
+                  <field name="name"/>
+              </tree>
+          </field>
+      </record>
+
+
+      <record model="ir.actions.act_window" id="cargo_management.action_menu_burden_types">
+          <field name="name">Tipo de Cargas</field>
+          <field name="res_model">cargo.type_of_burden</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <menuitem name="Tipo de Cargas"
+           id="cargo_management_burden_types"
+           parent="cargo_management_submenu_config"
+           action="cargo_management.action_menu_burden_types"
+           sequence="1"/>
+  </data>
+</odoo>

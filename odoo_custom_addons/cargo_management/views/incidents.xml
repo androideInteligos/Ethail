@@ -1,0 +1,78 @@
+<odoo>
+  <data>
+      <record model="ir.ui.view" id="cargo_management.views_tree_incidents">
+          <field name="name">Incidents Tree</field>
+          <field name="model">cargo.incidents</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="journeys_stop"/>
+                  <field name="items"/>
+                  <field name="description"/>
+                  <field name="incident_type"/>
+                  <field name="resolution"/>
+                  <field name="economic_impact"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="cargo_management.views_form_incidents">
+          <field name="name">Incidents Form</field>
+          <field name="model">cargo.incidents</field>
+          <field name="arch" type="xml">
+              <form string="Configuracion">
+                  <sheet>
+                      <group>
+                          <group style="display: block; width: 100%;">
+                              <group>
+                                  <field name="journey"/>
+                              </group>
+                              <group>
+                                  <field name="journeys_stop"/>
+                                  <field name="items"/>
+                              </group>
+                          </group>
+                          <group style="display: block; width: 100%;">
+                              <group string="Informacion Incidente">
+                                  <field name="description"/>
+                                  <field name="incident_type"/>
+                              </group>
+                              <group string="Involucrados">
+                                  <field name="responsible"/>
+                                  <field name="name_responsible"/>
+                                  <field name="contact"/>
+                              </group>
+                          </group>
+                          <group string="Paradas"
+                                 style="display: block; width: 100%;">
+                              <group>
+                                  <field name="resolution"/>
+                              </group>
+                              <group>
+                                  <field name="economic_impact"/>
+                              </group>
+                          </group>
+                          <group>
+                              <group>
+                                  <field name="extra_charge" type="checkbox"/>
+                                  <field name="assistant" type="checkbox"/>
+                              </group>
+                          </group>
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="cargo_management.action_menu_incidents">
+          <field name="name">Incidencias</field>
+          <field name="res_model">request.request</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <menuitem name="Incidencias"
+           id="cargo_management_incidents"
+           parent="cargo_management_submenu_config"
+           action="cargo_management.action_menu_incidents"
+           sequence="8"/>
+  </data>
+</odoo>

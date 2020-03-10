@@ -1,0 +1,75 @@
+<odoo>
+  <data>
+      <record model="ir.ui.view" id="cargo_management.views_tree_journey_stop">
+          <field name="name">Journey Stop Tree</field>
+          <field name="model">cargo.journey_stop</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="order"/>
+                  <field name="location"/>
+                  <field name="instructions"/>
+                  <field name="type_of_journey_stop"/>
+                  <field name="agreed_appointment"/>
+                  <field name="hour_journey_stop"/>
+                  <field name="status"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="cargo_management.views_form_journey_stop">
+          <field name="name">Journey Stop Form</field>
+          <field name="model">cargo.journey_stop</field>
+          <field name="arch" type="xml">
+              <form string="Paradas de Viaje">
+                  <sheet>
+                      <group>
+                          <group style="display: block; width: 100%;">
+                              <group>
+                                  <field name="journey"/>
+                                  <field name="order"/>
+                                  <field name="location"/>
+                              </group>
+                              <group>
+                                  <field name="instructions"/>
+                                  <field name="type_of_journey_stop"/>
+                              </group>
+                          </group>
+                          <group style="display: block; width: 100%;">
+                              <group string="Requerimientos Parada">
+                                  <field name="agreed_appointment"
+                                      type="checkbox"/>
+                                  <field name="hour_journey_stop"
+                                      widget = "float_time"/>
+                              </group>
+                          </group>
+                          <group style="display: block; width: 100%;">
+                              <group string="Contacto">
+                                  <field name="contact_name"/>
+                                  <field name="counterpart_signature"/>
+                              </group>
+                          </group>
+                          <group style="display: block; width: 100%;">
+                              <group string="Detalle Parada">
+<!--                                  <field name="contact_name"/>-->
+                                  <field name="status"/>
+                              </group>
+                          </group>
+                      </group>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="cargo_management.action_menu_journeys_stop">
+          <field name="name">Paradas de Viaje</field>
+          <field name="res_model">cargo.journey_stop</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <menuitem name="Paradas"
+           id="cargo_management_journeys_stop"
+           parent="cargo_management_submenu_config"
+           action="cargo_management.action_menu_journeys_stop"
+           sequence="5"/>
+  </data>
+</odoo>

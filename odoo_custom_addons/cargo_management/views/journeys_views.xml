@@ -1,0 +1,112 @@
+<odoo>
+  <data>
+      <record model="ir.ui.view" id="cargo_management.views_tree_journey">
+          <field name="name">Journey Tree</field>
+          <field name="model">cargo.journeys</field>
+          <field name="arch" type="xml">
+              <tree>
+                  <field name="identifier"/>
+                  <field name="driver_name"/>
+                  <field name="truck"/>
+                  <field name="shift"/>
+                  <field name="datetime_planned_source"/>
+                  <field name="datetime_planned_return"/>
+                  <field name="datetime_real_source"/>
+                  <field name="datetime_real_return"/>
+              </tree>
+          </field>
+      </record>
+
+      <record model="ir.ui.view" id="cargo_management.views_form_journey">
+          <field name="name">Journey Form</field>
+          <field name="model">cargo.journeys</field>
+          <field name="arch" type="xml">
+              <form string="Configuracion">
+                  <sheet>
+                      <group>
+                          <group style="display: block; width: 100%;">
+                              <group>
+                                  <field name="identifier"/>
+                                  <field name="driver_name"/>
+                              </group>
+                              <group>
+                                  <field name="truck"/>
+                                  <field name="shift"/>
+                              </group>
+                          </group>
+                          <group style="display: block; width: 100%;">
+                              <group string="Fechas Planeadas">
+                                  <field name="datetime_planned_source"
+                                      style="width: 240px;"/>
+                                  <field name="datetime_planned_return"
+                                      style="width: 240px;"/>
+                              </group>
+                              <group string="Fechas Reales">
+                                  <field name="datetime_real_source"
+                                      style="width: 240px;"/>
+                                  <field name="datetime_real_return"
+                                      style="width: 240px;"/>
+                              </group>
+                          </group>
+                          <group string="Paradas"
+                                 style="display: block; width: 100%;">
+                              <group>
+                                  <field name="quantity_journey_stop"/>
+                              </group>
+                              <group>
+                                  <field name="quantity_journey_stop_include"/>
+                              </group>
+                          </group>
+                          <group string="Opciones incluidas"
+                                 style="display: block; width: 100%;">
+                              <group>
+                                  <field name="stay" type="checkbox"/>
+                              </group>
+                              <group>
+                                  <field name="assistants" type="checkbox"/>
+                              </group>
+                              <group>
+                                  <field name="insurance" type="checkbox"/>
+                              </group>
+                          </group>
+                      </group>
+                      <notebook>
+                          <page string="Paradas">
+                              <group>
+                                   <field name="journeys_stop" nolabel="1"/>
+                              </group>
+                          </page>
+                          <page string="Cargas">
+                              <group>
+                                  <field name="burdens" nolabel="1"/>
+                              </group>
+                          </page>
+                          <page string="Personal Auxiliar">
+                              <group>
+                                  <field name="partners_help" nolabel="1"/>
+                              </group>
+                          </page>
+                          <page string="Incidencias">
+                              <group>
+                                  <field name="incidents" nolabel="1"/>
+                              </group>
+                          </page>
+                      </notebook>
+                  </sheet>
+              </form>
+          </field>
+      </record>
+
+      <record model="ir.actions.act_window" id="cargo_management.action_menu_journeys">
+          <field name="name">Viajes</field>
+          <field name="res_model">cargo.journeys</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+
+      <menuitem name="Todos los Viajes"
+           id="cargo_management_journeys"
+           parent="cargo_management_submenu_journey"
+           action="cargo_management.action_menu_journeys"
+           sequence="1"/>
+  </data>
+</odoo>
